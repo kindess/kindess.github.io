@@ -197,7 +197,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BootstrapTable/">BootstrapTable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elementUI/">elementUI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layui/">layui</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li></ul>
                     </div>
                 </section>
                 
@@ -276,6 +276,447 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-vue-elementUI上传组件具体实现" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/12/24/vue-elementUI上传组件具体实现/" class="article-date">
+      <time datetime="2019-12-24T02:53:12.000Z" itemprop="datePublished">2019-12-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/24/vue-elementUI上传组件具体实现/">vue-elementUI上传组件具体实现</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h6 id="直接上代码"><a href="#直接上代码" class="headerlink" title="直接上代码"></a>直接上代码</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;el-upload</span><br><span class="line">    style=<span class="string">"margin: 10px 0px"</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span></span>=<span class="string">"upload-demo"</span></span><br><span class="line">    action</span><br><span class="line">    drag</span><br><span class="line">    file-list=<span class="string">"fileList"</span></span><br><span class="line">    :on-preview=<span class="string">"handlePreview"</span></span><br><span class="line">    :on-success=<span class="string">"handelSuccess"</span></span><br><span class="line">    :on-error=<span class="string">"handelSuccess"</span></span><br><span class="line">    :on-remove=<span class="string">"handleRemove"</span></span><br><span class="line">    :http-request=<span class="string">"customUpload"</span></span><br><span class="line">    multiple</span><br><span class="line">    &gt;</span><br><span class="line">     &lt;i <span class="class"><span class="keyword">class</span></span>=<span class="string">"el-icon-upload"</span> /&gt;</span><br><span class="line">     &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"el-upload__text"</span>&gt;</span><br><span class="line">      上传附件：将文件拖到此处，或&lt;em&gt;点击上传&lt;<span class="regexp">/em&gt;</span></span><br><span class="line"><span class="regexp">     &lt;/</span>div&gt;</span><br><span class="line">  &lt;<span class="regexp">/el-upload&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123; </span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      fileList: [],</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  method: &#123;</span><br><span class="line">    customUpload(content) &#123;</span><br><span class="line">          uploadesAttach(content).then(<span class="function"><span class="params">c</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// onSuccess是参数content自带的方法，成功上传将会调用on-success属性对应的钩子方法</span></span><br><span class="line">            content.onSuccess(c)</span><br><span class="line">          &#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">            content.onError(error)</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 上传文件有改变回调</span></span><br><span class="line">        onchange(file, fileList) &#123;</span><br><span class="line">          <span class="keyword">const</span> _this = <span class="keyword">this</span></span><br><span class="line">          <span class="keyword">const</span> fileObj = &#123; <span class="string">'file'</span>: file.raw &#125;</span><br><span class="line">          uploadesAttach(fileObj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.info(fileList)</span><br><span class="line">            _this.fileList.find(<span class="function"><span class="params">c</span> =&gt;</span> c.name === file.name).filePath = res.data.filePath</span><br><span class="line">          &#125;)</span><br><span class="line">          <span class="built_in">console</span>.log(file)</span><br><span class="line">        &#125;,</span><br><span class="line">        handleRemove(file, fileList) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'remove file'</span>, <span class="keyword">this</span>.fileList, file)</span><br><span class="line">          <span class="comment">// const filePath = this.fileList.find(c =&gt; c.name === file.name).filePath</span></span><br><span class="line">          <span class="keyword">var</span> index = file.filePath.lastIndexOf(<span class="string">'/'</span>)</span><br><span class="line">          <span class="keyword">const</span> fileName = file.filePath.substring(index + <span class="number">1</span>, file.filePath.length)</span><br><span class="line">          deleteAttach(fileName)</span><br><span class="line">          <span class="keyword">this</span>.fileList = <span class="built_in">Object</span>.assign([], fileList)</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'removedddddd file'</span>, <span class="keyword">this</span>.fileList)</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 文件上传成功之后的回调</span></span><br><span class="line">        handelSuccess(response, file, fileList) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(fileList, response)</span><br><span class="line">          <span class="comment">// 将每次上传成功的文件路径列表放入总集合中</span></span><br><span class="line">          <span class="keyword">this</span>.fileList = <span class="built_in">Object</span>.assign([], fileList)</span><br><span class="line">          <span class="keyword">this</span>.fileList.find(<span class="function"><span class="params">c</span> =&gt;</span> c.name === file.name).filePath = response.data.filePath</span><br><span class="line">        &#125;,</span><br><span class="line">        handlePreview(file, fileList) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(file, fileList, <span class="string">'preview....'</span>)</span><br><span class="line">        &#125;,</span><br><span class="line">        handlePictureCardPreview(file) &#123;</span><br><span class="line">          <span class="keyword">this</span>.dialogImageUrl = file.url</span><br><span class="line">          <span class="keyword">this</span>.thumbDialogVisible = <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        handleDownload(file) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(file)</span><br><span class="line">        &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/elementUI/">elementUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-angular踩坑记（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/21/angular踩坑记（一）/" class="article-date">
+      <time datetime="2019-07-21T09:17:52.000Z" itemprop="datePublished">2019-07-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/21/angular踩坑记（一）/">angular踩坑记（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>本篇博客主要讲的是，在Angular中使用BootstrapTable的注意事项，在Angular中安装JQuery, Bootstrap, BootstrapTable不是此篇博客讨论的重点</p>
+<h2 id="Angular集成JQuery、Bootstrap"><a href="#Angular集成JQuery、Bootstrap" class="headerlink" title="Angular集成JQuery、Bootstrap"></a>Angular集成JQuery、Bootstrap</h2><p>请参考别人的<a href="https://www.cnblogs.com/Kailey/p/7865971.html" target="_blank" rel="noopener">博客</a>。再次强调cnpm是安装了淘宝镜像，没有安装就使用npm，但npm可能因为网速出现各种奇葩问题。请参考cnpm的<br>安装或设置。好了，进入正题！如果参考上面的博客安装Bootstrap之后，Bootstrap如果没有效果，注意一下angular.json文件中<br>的apps下的styles和scripts引入的路径，如果样式还是效果，请直接在app文件夹下的index.html中直接引入，比如参考<a href="https://www.cnblogs.com/xxx91hx/p/7898642.html" target="_blank" rel="noopener">这篇博客</a>。<br>如果想知道上面配置在angular.json的styles和scripts为什么没有起作用，请参考<a href="https://blog.csdn.net/sxl131415/article/details/79201292" target="_blank" rel="noopener">这篇博客</a></p>
+<h2 id="使用BootstrapTable时，需要注意JQuery的引入（重点）"><a href="#使用BootstrapTable时，需要注意JQuery的引入（重点）" class="headerlink" title="使用BootstrapTable时，需要注意JQuery的引入（重点）"></a>使用BootstrapTable时，需要注意JQuery的引入（重点）</h2><p>如果在ts文件中如此引入jquery<br><img src="/2019/07/21/angular踩坑记（一）/1.png" alt="ts文件中jquery的引入"></p>
+<p>在使用BootstrapTable的时候，会存在BootstrapTable显示问题，比如<br><img src="/2019/07/21/angular踩坑记（一）/3.png" alt="ts文件中jquery的导致的问题"></p>
+<p>先说结论，就是ts文件中引入jquery的引入方式不对，安装过程是没有错误的！原因就是页面可以显示部分表格，虽然控制台报错<br>“bootstrapTable is not a function”，说明Jq在工作，不然就会报错什么”$ not undefined”或者什么不能操作”property of undefined xxx”</p>
+<p>解决方式：<br>请这样引入Jquery<br><img src="/2019/07/21/angular踩坑记（一）/2.png" alt="ts文件中jquery的引入"></p>
+<p>正确引入之后，页面就会正常显示了<br><img src="/2019/07/21/angular踩坑记（一）/4.png" alt="ts文件中jquery的引入"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BootstrapTable/">BootstrapTable</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JQuery/">JQuery</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-springboot与angular前后端分离之携带cookie" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/18/springboot与angular前后端分离之携带cookie/" class="article-date">
+      <time datetime="2019-07-18T03:24:55.000Z" itemprop="datePublished">2019-07-18</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/18/springboot与angular前后端分离之携带cookie/">SpringBoot与Angular前后端分离之携带Cookie</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><h2 id="SpringBoot支持的跨域方式"><a href="#SpringBoot支持的跨域方式" class="headerlink" title="SpringBoot支持的跨域方式"></a><a href="https://segmentfault.com/a/1190000018554528?utm_source=tag-newest" target="_blank" rel="noopener">SpringBoot支持的跨域方式</a></h2><p>支持四种方式：<br>    在Controller层使用注解（@CrossOrigin）<br>    实现WebMvcConfigurer接口，全局跨域（或者继承其实现类）<br>    使用Filter方式，进行全局跨域<br>    手工设置响应头（HttpServletResponse）</p>
+<h2 id="关于Cookie跨域需要了解"><a href="#关于Cookie跨域需要了解" class="headerlink" title="关于Cookie跨域需要了解"></a>关于Cookie跨域需要了解</h2><p><a href="https://blog.csdn.net/wangyucui123/article/details/81038840" target="_blank" rel="noopener">关于Cookie的path与Domain</a><br><a href="https://blog.csdn.net/qq_38553333/article/details/80055521" target="_blank" rel="noopener">Cookie中的httponly的属性和作用</a></p>
+<p>除此之外，还需要注意的是：<br>后端必须需要设置Access-Control-Allow-Credentials，因为安全原因，跨域时，后端响应头不会自动携带Cookie，<br>只有设置此属性才会携带Cookie。而前端必须设置withCredentials，前端才会去拿后端携带的Cookie。<br>我直接截一张别人博客上的图来说明！简单，明了！看图<br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/5.png" alt="图5"></p>
+<h2 id="关于Springboot使用了Security的RememberMe功能进行跨域导致的问题"><a href="#关于Springboot使用了Security的RememberMe功能进行跨域导致的问题" class="headerlink" title="关于Springboot使用了Security的RememberMe功能进行跨域导致的问题"></a>关于Springboot使用了Security的RememberMe功能进行跨域导致的问题</h2><p>上面所说的后端设置Access-Control-Allow-Credentials，前端设置withCredentials就能解决问题啦！但是，光是上面<br>的设置是无论如何也解决不了前端无法获取Security的RememberMe功能生成的Cookie！</p>
+<p>回到上面所讲的，Cookie中httponly的属性决定了前端是否能通过JS去获取并操作Cookie，而如果Springboot使用了<br>Security的RememberMe，那么会遇到一个问题，那就是这个RememberMe功能的Cookie，默认设置了httponly为true。</p>
+<p>通过AbstractRememberMeServices源码分析，如下图<br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/1.png" alt="源码1"><br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/2.png" alt="源码2"><br>属性setHttpOnlyMethod决定了Cookie的httpOnly，如下图<br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/3.png" alt="源码3"><br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/4.png" alt="源码4"><br>通过DeBug进行源码执行时，在对判断属性setHttpOnlyMethod进行判断之前（查看断点处），cookie的httpOnly还是false，<br>点击执行下一步时，”this.setHttpOnlyMethod != null”表达式结果将为真，会执行if中的代码。然后继续下一步，就执行到了<br>最后的”response.addCookie(cookie);”，此时，cookie的httpOnly就变成了true了！<br>前端将获取不到这个cookie，如图<br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/6.png" alt="图6"><br>啊？是我跨域的时候没有传Cookie吗？不，不是的！<br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/7.png" alt="图7"><br>查看Chrome的Appliction面板，发现浏览器中一个”rememberMe”的cookie，这就是我利用Security的RememberMe功能生成的Cookie!<br>那浏览器中有，为啥”document.cookie”还拿不到呢？注意了！Application面板中，我箭头标记的”http”就是httpOnly!那个”√”就是表示httpOnly=true!代表你永远也拿不到的痛！</p>
+<p>既然知道问题了，还是要解决的。将cookie的httpOnly设置为false，这是不可行的，因为AbstractRememberMeServices没有提供一个我们设置setHttpOnlyMethod<br>属性的方式（因为它是一个私有属性），如果非要修改这个值，只能重写AbstractRememberMeServices整个类。。。或者采用反射机制，修改父类属性值！<br>如图，<br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/8.png" alt="图8"><br>前端Angular进行一个登录检查，登录成功就利用Angular提供的ngx-cookie-service组件（如果用的Angular，自己百度一下安装）<br>设置一个Cookie。也不是非要使用这个组件才行，利用原生js一样可以改Cookie（自己百度一下）</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-angular集成篇" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/17/angular集成篇/" class="article-date">
+      <time datetime="2019-07-17T04:40:49.000Z" itemprop="datePublished">2019-07-17</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/17/angular集成篇/">angular集成篇</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="angular7整合layui框架"><a href="#angular7整合layui框架" class="headerlink" title="angular7整合layui框架"></a>angular7整合layui框架</h2><p>因为layui不支持对npm的安装，因此angluar集成layui会遇到很多问题。点击查看集成<a href="https://blog.csdn.net/qq_34309663/article/details/89370858" target="_blank" rel="noopener">解决方案</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/layui/">layui</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-angular4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/17/angular4/" class="article-date">
+      <time datetime="2019-07-17T03:23:47.000Z" itemprop="datePublished">2019-07-17</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/17/angular4/">Angular入门学习四</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h2><p><a href="https://blog.csdn.net/hengxinxuan/article/details/86072464" target="_blank" rel="noopener">路由守卫指的就是防止路由自由进出的功能</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-angular3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/17/angular3/" class="article-date">
+      <time datetime="2019-07-17T03:21:14.000Z" itemprop="datePublished">2019-07-17</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/17/angular3/">Angular入门学习三</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p><a href="https://blog.csdn.net/u013000304/article/details/85874601" target="_blank" rel="noopener">Angular6-路由-配置路由（常规路由 + 子路由 + 路由守卫 + 路由跳转-代码跳转）</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-angular2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/11/angular2/" class="article-date">
+      <time datetime="2019-07-11T07:02:20.000Z" itemprop="datePublished">2019-07-11</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/11/angular2/">Angular入门学习二</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构"></a>项目目录结构</h2><p>首先，看一下文件目录结构。官网查看<a href="https://angular.cn/guide/file-structure#multiple-project-file-structure" target="_blank" rel="noopener">目录结构</a>，下面比较直观的图是我从其他博客扒下来的<br><img src="/2019/07/11/angular2/1.png" alt="结构目录"></p>
+<h3 id="app目录（重点）"><a href="#app目录（重点）" class="headerlink" title="app目录（重点）"></a>app目录（重点）</h3><p>新建组件</p>
+<code>
+ng generate component 组件名
+</code>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-angular1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -305,20 +746,47 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##安装环境</p>
-<p>###安装node.js<br>学习Angular，首先需要安装node.js，需要node内置的npm支持，<a href="https://nodejs.org/en/download/current/" target="_blank" rel="noopener">node.js的官网下载</a></p>
-<p>###安装angular<br>使用node安装angular：<br>npm的官网在国外，同docker等等，网速太慢会引起各种问题，因此使用node安装之前，先换源，使用淘宝镜像安装。<br><code><br>npm config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a> //淘宝换源指令<br>npm install -g @angular/cli //安装angular<br></code><br>查看版本信息，是否安装成功，运行命令  ng v<br><img src="/2019/07/11/angular1/1.webp" alt="查看版本信息"><br>新建一个angular空项目不过，使用上面这条命令创建会出现问题（没遇到就算了，遇到请使用下面的方式创建）<br><code><br>ng new --skip-install<br></code><br>如图，<br><img src="/2019/07/11/angular1/2.png" alt="新建一个angular空项目"><br>上面我们没有安装angular的依赖，因此我们进入项目根目录下，我这个项目根目录是C:\Users\Administrator\my-app,<br>打开cmd命令，执行npm install或者cnpm install（上面换源了才能使用cnpm命令）<br>运行命令<br><code><br>ng serve<br></code><br>打开浏览器，访问localhost:4200，如果执行命令出现类似下面的报错，<br><code><br>An unhandled exception occurred: Cannot find module '@angular-devkit/build-webpack'<br>See "C:\Users\ADMINI~1\AppData\Local\Temp\ng-lEA4YS\angular-errors.log" for further details.<br>npm ERR! file C:\Windows\system32\cmd.exe<br>npm ERR! code ELIFECYCLE<br>npm ERR! errno ENOENT<br>npm ERR! syscall spawn<br>npm ERR! <a href="mailto:test@0.0.0" target="_blank" rel="noopener">test@0.0.0</a> start: <code>ng serve</code><br>npm ERR! spawn ENOENT<br>npm ERR!<br>npm ERR! Failed at the <a href="mailto:test@0.0.0" target="_blank" rel="noopener">test@0.0.0</a> start script.<br>npm ERR! This is probably not a problem with npm. There is likely additional logging output above.</code></p>
-<p>npm ERR! A complete log of this run can be found in:<br>npm ERR!     D:\Program Files\nodejs\node_cache_logs\2019-07-11T06_13_09_014Z-debug.log</p>
-
-表示缺少依赖，最直接的办法就是删掉my-app项目中的文件夹node_modules，这文件夹下全是执行cnpm install
-命令安装的依赖，删掉之后我们重新执行cnpm install进行重新下载。如仍有报错，继续。。。
-###结果
-![成功页面](angular1/3.png)
-###新建一个angular空项目
+        <h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>学习Angular，首先需要安装node.js，需要node内置的npm支持，<a href="https://nodejs.org/en/download/current/" target="_blank" rel="noopener">node.js的官网下载</a></p>
+<h3 id="安装angular"><a href="#安装angular" class="headerlink" title="安装angular"></a>安装angular</h3><p>使用node安装angular：<br>npm的官网在国外，同docker等等，网速太慢会引起各种问题，因此使用node安装之前，先换源，使用淘宝镜像安装。</p>
 <code>
+npm config set registry https://registry.npm.taobao.org //淘宝换源指令
+npm install -g @angular/cli //安装angular
+</code>
+
+<p>查看版本信息，是否安装成功，运行命令  ng v<br><img src="/2019/07/11/angular1/1.webp" alt="查看版本信息"></p>
+<h3 id="新建一个angular空项目"><a href="#新建一个angular空项目" class="headerlink" title="新建一个angular空项目"></a>新建一个angular空项目</h3><code>
 ng new 项目名
 </code>
 
+<p>使用ng命令新建一个angular空项目。不过，使用上面这条命令创建会出现问题（没遇到就算了，遇到请使用下面的方式创建）</p>
+<code>
+ng new --skip-install
+</code>
+
+<p>如图，<br><img src="/2019/07/11/angular1/2.png" alt="新建一个angular空项目"><br>上面我们没有安装angular的依赖，因此我们进入项目根目录下，我这个项目根目录是C:\Users\Administrator\my-app,<br>打开cmd命令，执行npm install或者cnpm install（上面换源了才能使用cnpm命令）<br>运行命令</p>
+<code>
+ng serve
+</code>
+
+<p>打开浏览器，访问localhost:4200，如果执行命令出现类似下面的报错，</p>
+<code>
+An unhandled exception occurred: Cannot find module '@angular-devkit/build-webpack'
+See "C:\Users\ADMINI~1\AppData\Local\Temp\ng-lEA4YS\angular-errors.log" for further details.
+npm ERR! file C:\Windows\system32\cmd.exe
+npm ERR! code ELIFECYCLE
+npm ERR! errno ENOENT
+npm ERR! syscall spawn
+npm ERR! test@0.0.0 start: `ng serve`
+npm ERR! spawn ENOENT
+npm ERR!
+npm ERR! Failed at the test@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+<p>npm ERR! A complete log of this run can be found in:<br>npm ERR!     D:\Program Files\nodejs\node_cache_logs\2019-07-11T06_13_09_014Z-debug.log</p>
+</code>
+
+<p>表示缺少依赖，最直接的办法就是删掉my-app项目中的文件夹node_modules，这文件夹下全是执行cnpm install<br>命令安装的依赖，删掉之后我们重新执行cnpm install进行重新下载。如仍有报错，继续。。。</p>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p><img src="/2019/07/11/angular1/3.png" alt="成功页面"></p>
 
       
     </div>

@@ -15,16 +15,23 @@
 
 
 
-<meta name="description" content="欢迎来到谎言、的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="谎言、">
-<meta property="og:url" content="http://yoursite.com/tags/Hexo/index.html">
+<meta name="description" content="本篇博客主要讲的是，在Angular中使用BootstrapTable的注意事项，在Angular中安装JQuery, Bootstrap, BootstrapTable不是此篇博客讨论的重点 Angular集成JQuery、Bootstrap请参考别人的博客。再次强调cnpm是安装了淘宝镜像，没有安装就使用npm，但npm可能因为网速出现各种奇葩问题。请参考cnpm的安装或设置。好了，进入正题！">
+<meta name="keywords" content="Angular,JQuery,Bootstrap,BootstrapTable">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angular踩坑记（一）">
+<meta property="og:url" content="http://yoursite.com/2019/07/21/angular踩坑记（一）/index.html">
 <meta property="og:site_name" content="谎言、">
-<meta property="og:description" content="欢迎来到谎言、的个人博客">
+<meta property="og:description" content="本篇博客主要讲的是，在Angular中使用BootstrapTable的注意事项，在Angular中安装JQuery, Bootstrap, BootstrapTable不是此篇博客讨论的重点 Angular集成JQuery、Bootstrap请参考别人的博客。再次强调cnpm是安装了淘宝镜像，没有安装就使用npm，但npm可能因为网速出现各种奇葩问题。请参考cnpm的安装或设置。好了，进入正题！">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/07/21/angular踩坑记（一）/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/21/angular踩坑记（一）/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/21/angular踩坑记（一）/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/21/angular踩坑记（一）/4.png">
+<meta property="og:updated_time" content="2019-07-21T10:16:03.180Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谎言、">
-<meta name="twitter:description" content="欢迎来到谎言、的个人博客">
+<meta name="twitter:title" content="angular踩坑记（一）">
+<meta name="twitter:description" content="本篇博客主要讲的是，在Angular中使用BootstrapTable的注意事项，在Angular中安装JQuery, Bootstrap, BootstrapTable不是此篇博客讨论的重点 Angular集成JQuery、Bootstrap请参考别人的博客。再次强调cnpm是安装了淘宝镜像，没有安装就使用npm，但npm可能因为网速出现各种奇葩问题。请参考cnpm的安装或设置。好了，进入正题！">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/21/angular踩坑记（一）/1.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -56,7 +63,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Tag: Hexo | 谎言、</title>
+<title>angular踩坑记（一） | 谎言、</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -66,9 +73,9 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
-        isTag: true,
+        isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
@@ -269,60 +276,178 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-angular踩坑记（一）" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/06/30/first-article/" class="archive-article-date">
-      <time datetime="2019-06-30T13:33:38.000Z" itemprop="datePublished">06-30</time>
+    <div class="article-meta">
+      <a href="/2019/07/21/angular踩坑记（一）/" class="article-date">
+      <time datetime="2019-07-21T09:17:52.000Z" itemprop="datePublished">2019-07-21</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/30/first-article/">Hexo+github搭建个人博客的历程</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      angular踩坑记（一）
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Hexo搭建/">Hexo搭建</a>
-    </div>
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-
-          
+        
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BootstrapTable/">BootstrapTable</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JQuery/">JQuery</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>本篇博客主要讲的是，在Angular中使用BootstrapTable的注意事项，在Angular中安装JQuery, Bootstrap, BootstrapTable不是此篇博客讨论的重点</p>
+<h2 id="Angular集成JQuery、Bootstrap"><a href="#Angular集成JQuery、Bootstrap" class="headerlink" title="Angular集成JQuery、Bootstrap"></a>Angular集成JQuery、Bootstrap</h2><p>请参考别人的<a href="https://www.cnblogs.com/Kailey/p/7865971.html" target="_blank" rel="noopener">博客</a>。再次强调cnpm是安装了淘宝镜像，没有安装就使用npm，但npm可能因为网速出现各种奇葩问题。请参考cnpm的<br>安装或设置。好了，进入正题！如果参考上面的博客安装Bootstrap之后，Bootstrap如果没有效果，注意一下angular.json文件中<br>的apps下的styles和scripts引入的路径，如果样式还是效果，请直接在app文件夹下的index.html中直接引入，比如参考<a href="https://www.cnblogs.com/xxx91hx/p/7898642.html" target="_blank" rel="noopener">这篇博客</a>。<br>如果想知道上面配置在angular.json的styles和scripts为什么没有起作用，请参考<a href="https://blog.csdn.net/sxl131415/article/details/79201292" target="_blank" rel="noopener">这篇博客</a></p>
+<h2 id="使用BootstrapTable时，需要注意JQuery的引入（重点）"><a href="#使用BootstrapTable时，需要注意JQuery的引入（重点）" class="headerlink" title="使用BootstrapTable时，需要注意JQuery的引入（重点）"></a>使用BootstrapTable时，需要注意JQuery的引入（重点）</h2><p>如果在ts文件中如此引入jquery<br><img src="/2019/07/21/angular踩坑记（一）/1.png" alt="ts文件中jquery的引入"></p>
+<p>在使用BootstrapTable的时候，会存在BootstrapTable显示问题，比如<br><img src="/2019/07/21/angular踩坑记（一）/3.png" alt="ts文件中jquery的导致的问题"></p>
+<p>先说结论，就是ts文件中引入jquery的引入方式不对，安装过程是没有错误的！原因就是页面可以显示部分表格，虽然控制台报错<br>“bootstrapTable is not a function”，说明Jq在工作，不然就会报错什么”$ not undefined”或者什么不能操作”property of undefined xxx”</p>
+<p>解决方式：<br>请这样引入Jquery<br><img src="/2019/07/21/angular踩坑记（一）/2.png" alt="ts文件中jquery的引入"></p>
+<p>正确引入之后，页面就会正常显示了<br><img src="/2019/07/21/angular踩坑记（一）/4.png" alt="ts文件中jquery的引入"></p>
+
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/07/21/angular踩坑记（一）/">angular踩坑记（一）</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Peng Binbin</a></p>
+        <p><span>发布时间:</span>2019-07-21, 17:17:52</p>
+        <p><span>最后更新:</span>2019-07-21, 18:16:03</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/07/21/angular踩坑记（一）/" title="angular踩坑记（一）">http://yoursite.com/2019/07/21/angular踩坑记（一）/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/07/21/angular踩坑记（一）/　　作者: Peng Binbin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/12/24/vue-elementUI上传组件具体实现/">
+                    vue-elementUI上传组件具体实现
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/07/18/springboot与angular前后端分离之携带cookie/">
+                    SpringBoot与Angular前后端分离之携带Cookie
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Angular集成JQuery、Bootstrap"><span class="toc-number">1.</span> <span class="toc-text">Angular集成JQuery、Bootstrap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用BootstrapTable时，需要注意JQuery的引入（重点）"><span class="toc-number">2.</span> <span class="toc-text">使用BootstrapTable时，需要注意JQuery的引入（重点）</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"angular踩坑记（一）　| 谎言、　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/12/24/vue-elementUI上传组件具体实现/" title="上一篇: vue-elementUI上传组件具体实现">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/07/18/springboot与angular前后端分离之携带cookie/" title="下一篇: SpringBoot与Angular前后端分离之携带Cookie">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/12/24/vue-elementUI上传组件具体实现/">vue-elementUI上传组件具体实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/21/angular踩坑记（一）/">angular踩坑记（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/springboot与angular前后端分离之携带cookie/">SpringBoot与Angular前后端分离之携带Cookie</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/17/angular集成篇/">angular集成篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/17/angular4/">Angular入门学习四</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/17/angular3/">Angular入门学习三</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/11/angular2/">Angular入门学习二</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/11/angular1/">Angular入门学习一</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/30/first-article/">Hexo+github搭建个人博客的历程</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">

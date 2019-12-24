@@ -15,20 +15,27 @@
 
 
 
-<meta name="description" content="这是我的第一篇个人博客。下面讲述一下，我利用Hexo+github搭建个人博客的历程。网上已经有很多关于Hexo搭建博客的资料了，比如这一篇博客Hexo+Github搭建个人博客">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="跨域SpringBoot支持的跨域方式支持四种方式：    在Controller层使用注解（@CrossOrigin）    实现WebMvcConfigurer接口，全局跨域（或者继承其实现类）    使用Filter方式，进行全局跨域    手工设置响应头（HttpServletResponse） 关于Cookie跨域需要了解关于Cookie的path与DomainCookie中的httpo">
+<meta name="keywords" content="Angular,SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo+github搭建个人博客的历程">
-<meta property="og:url" content="http://yoursite.com/2019/06/30/first-article/index.html">
+<meta property="og:title" content="SpringBoot与Angular前后端分离之携带Cookie">
+<meta property="og:url" content="http://yoursite.com/2019/07/18/springboot与angular前后端分离之携带cookie/index.html">
 <meta property="og:site_name" content="谎言、">
-<meta property="og:description" content="这是我的第一篇个人博客。下面讲述一下，我利用Hexo+github搭建个人博客的历程。网上已经有很多关于Hexo搭建博客的资料了，比如这一篇博客Hexo+Github搭建个人博客">
+<meta property="og:description" content="跨域SpringBoot支持的跨域方式支持四种方式：    在Controller层使用注解（@CrossOrigin）    实现WebMvcConfigurer接口，全局跨域（或者继承其实现类）    使用Filter方式，进行全局跨域    手工设置响应头（HttpServletResponse） 关于Cookie跨域需要了解关于Cookie的path与DomainCookie中的httpo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/06/30/first-article/2.png">
-<meta property="og:updated_time" content="2019-06-30T15:22:44.044Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/18/springboot与angular前后端分离之携带cookie/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/18/springboot与angular前后端分离之携带cookie/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/18/springboot与angular前后端分离之携带cookie/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/18/springboot与angular前后端分离之携带cookie/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/18/springboot与angular前后端分离之携带cookie/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/18/springboot与angular前后端分离之携带cookie/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/18/springboot与angular前后端分离之携带cookie/7.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/18/springboot与angular前后端分离之携带cookie/8.png">
+<meta property="og:updated_time" content="2019-07-29T06:31:32.948Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo+github搭建个人博客的历程">
-<meta name="twitter:description" content="这是我的第一篇个人博客。下面讲述一下，我利用Hexo+github搭建个人博客的历程。网上已经有很多关于Hexo搭建博客的资料了，比如这一篇博客Hexo+Github搭建个人博客">
-<meta name="twitter:image" content="http://yoursite.com/2019/06/30/first-article/2.png">
+<meta name="twitter:title" content="SpringBoot与Angular前后端分离之携带Cookie">
+<meta name="twitter:description" content="跨域SpringBoot支持的跨域方式支持四种方式：    在Controller层使用注解（@CrossOrigin）    实现WebMvcConfigurer接口，全局跨域（或者继承其实现类）    使用Filter方式，进行全局跨域    手工设置响应头（HttpServletResponse） 关于Cookie跨域需要了解关于Cookie的path与DomainCookie中的httpo">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/18/springboot与angular前后端分离之携带cookie/5.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -60,7 +67,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Hexo+github搭建个人博客的历程 | 谎言、</title>
+<title>SpringBoot与Angular前后端分离之携带Cookie | 谎言、</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -273,11 +280,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-first-article" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-springboot与angular前后端分离之携带cookie" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/06/30/first-article/" class="article-date">
-      <time datetime="2019-06-30T13:33:38.000Z" itemprop="datePublished">2019-06-30</time>
+      <a href="/2019/07/18/springboot与angular前后端分离之携带cookie/" class="article-date">
+      <time datetime="2019-07-18T03:24:55.000Z" itemprop="datePublished">2019-07-18</time>
 </a>
 
 
@@ -292,7 +299,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo+github搭建个人博客的历程
+      SpringBoot与Angular前后端分离之携带Cookie
     </h1>
   
 
@@ -300,14 +307,10 @@
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Hexo搭建/">Hexo搭建</a>
-    </div>
-
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -317,11 +320,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>这是我的第一篇个人博客。下面讲述一下，我利用Hexo+github搭建个人博客的历程。网上已经有很多关于Hexo搭建博客的资料了，<br>比如这一篇博客<a href="https://blog.csdn.net/u014427391/article/details/53670744" target="_blank" rel="noopener">Hexo+Github搭建个人博客</a></p>
-<a id="more"></a>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>首先，需要安装一大堆东西。主要是安装node.js,然后通过node.js的npm包管理命令安装许多其他的插件。</p>
-<h3 id="nodeJs安装"><a href="#nodeJs安装" class="headerlink" title="nodeJs安装"></a>nodeJs安装</h3><p>访问<a href="https://nodejs.org/en/download/current/" target="_blank" rel="noopener">node.js的官网</a>安装node.js，如下图<br><img src="/2019/06/30/first-article/2.png" alt="node.js安装"></p>
-<h3 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h3>
+        <h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><h2 id="SpringBoot支持的跨域方式"><a href="#SpringBoot支持的跨域方式" class="headerlink" title="SpringBoot支持的跨域方式"></a><a href="https://segmentfault.com/a/1190000018554528?utm_source=tag-newest" target="_blank" rel="noopener">SpringBoot支持的跨域方式</a></h2><p>支持四种方式：<br>    在Controller层使用注解（@CrossOrigin）<br>    实现WebMvcConfigurer接口，全局跨域（或者继承其实现类）<br>    使用Filter方式，进行全局跨域<br>    手工设置响应头（HttpServletResponse）</p>
+<h2 id="关于Cookie跨域需要了解"><a href="#关于Cookie跨域需要了解" class="headerlink" title="关于Cookie跨域需要了解"></a>关于Cookie跨域需要了解</h2><p><a href="https://blog.csdn.net/wangyucui123/article/details/81038840" target="_blank" rel="noopener">关于Cookie的path与Domain</a><br><a href="https://blog.csdn.net/qq_38553333/article/details/80055521" target="_blank" rel="noopener">Cookie中的httponly的属性和作用</a></p>
+<p>除此之外，还需要注意的是：<br>后端必须需要设置Access-Control-Allow-Credentials，因为安全原因，跨域时，后端响应头不会自动携带Cookie，<br>只有设置此属性才会携带Cookie。而前端必须设置withCredentials，前端才会去拿后端携带的Cookie。<br>我直接截一张别人博客上的图来说明！简单，明了！看图<br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/5.png" alt="图5"></p>
+<h2 id="关于Springboot使用了Security的RememberMe功能进行跨域导致的问题"><a href="#关于Springboot使用了Security的RememberMe功能进行跨域导致的问题" class="headerlink" title="关于Springboot使用了Security的RememberMe功能进行跨域导致的问题"></a>关于Springboot使用了Security的RememberMe功能进行跨域导致的问题</h2><p>上面所说的后端设置Access-Control-Allow-Credentials，前端设置withCredentials就能解决问题啦！但是，光是上面<br>的设置是无论如何也解决不了前端无法获取Security的RememberMe功能生成的Cookie！</p>
+<p>回到上面所讲的，Cookie中httponly的属性决定了前端是否能通过JS去获取并操作Cookie，而如果Springboot使用了<br>Security的RememberMe，那么会遇到一个问题，那就是这个RememberMe功能的Cookie，默认设置了httponly为true。</p>
+<p>通过AbstractRememberMeServices源码分析，如下图<br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/1.png" alt="源码1"><br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/2.png" alt="源码2"><br>属性setHttpOnlyMethod决定了Cookie的httpOnly，如下图<br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/3.png" alt="源码3"><br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/4.png" alt="源码4"><br>通过DeBug进行源码执行时，在对判断属性setHttpOnlyMethod进行判断之前（查看断点处），cookie的httpOnly还是false，<br>点击执行下一步时，”this.setHttpOnlyMethod != null”表达式结果将为真，会执行if中的代码。然后继续下一步，就执行到了<br>最后的”response.addCookie(cookie);”，此时，cookie的httpOnly就变成了true了！<br>前端将获取不到这个cookie，如图<br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/6.png" alt="图6"><br>啊？是我跨域的时候没有传Cookie吗？不，不是的！<br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/7.png" alt="图7"><br>查看Chrome的Appliction面板，发现浏览器中一个”rememberMe”的cookie，这就是我利用Security的RememberMe功能生成的Cookie!<br>那浏览器中有，为啥”document.cookie”还拿不到呢？注意了！Application面板中，我箭头标记的”http”就是httpOnly!那个”√”就是表示httpOnly=true!代表你永远也拿不到的痛！</p>
+<p>既然知道问题了，还是要解决的。将cookie的httpOnly设置为false，这是不可行的，因为AbstractRememberMeServices没有提供一个我们设置setHttpOnlyMethod<br>属性的方式（因为它是一个私有属性），如果非要修改这个值，只能重写AbstractRememberMeServices整个类。。。或者采用反射机制，修改父类属性值！<br>如图，<br><img src="/2019/07/18/springboot与angular前后端分离之携带cookie/8.png" alt="图8"><br>前端Angular进行一个登录检查，登录成功就利用Angular提供的ngx-cookie-service组件（如果用的Angular，自己百度一下安装）<br>设置一个Cookie。也不是非要使用这个组件才行，利用原生js一样可以改Cookie（自己百度一下）</p>
+
       
     </div>
     
@@ -329,13 +335,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/06/30/first-article/">Hexo+github搭建个人博客的历程</a></p>
+        <p><span>本文标题:</span><a href="/2019/07/18/springboot与angular前后端分离之携带cookie/">SpringBoot与Angular前后端分离之携带Cookie</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Peng Binbin</a></p>
-        <p><span>发布时间:</span>2019-06-30, 21:33:38</p>
-        <p><span>最后更新:</span>2019-06-30, 23:22:44</p>
+        <p><span>发布时间:</span>2019-07-18, 11:24:55</p>
+        <p><span>最后更新:</span>2019-07-29, 14:31:32</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/06/30/first-article/" title="Hexo+github搭建个人博客的历程">http://yoursite.com/2019/06/30/first-article/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/06/30/first-article/　　作者: Peng Binbin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/07/18/springboot与angular前后端分离之携带cookie/" title="SpringBoot与Angular前后端分离之携带Cookie">http://yoursite.com/2019/07/18/springboot与angular前后端分离之携带cookie/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/07/18/springboot与angular前后端分离之携带cookie/　　作者: Peng Binbin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -348,11 +354,17 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/07/11/angular1/">
-                    Angular入门学习一
+                <a href="/2019/07/21/angular踩坑记（一）/">
+                    angular踩坑记（一）
                 </a>
             </div>
         
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/07/17/angular集成篇/">
+                    angular集成篇
+                </a>
+            </div>
         
     </nav>
 
@@ -362,7 +374,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境配置"><span class="toc-number">1.</span> <span class="toc-text">环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nodeJs安装"><span class="toc-number">1.1.</span> <span class="toc-text">nodeJs安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo安装"><span class="toc-number">1.2.</span> <span class="toc-text">Hexo安装</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#跨域"><span class="toc-number">1.</span> <span class="toc-text">跨域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot支持的跨域方式"><span class="toc-number">2.</span> <span class="toc-text">SpringBoot支持的跨域方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于Cookie跨域需要了解"><span class="toc-number">3.</span> <span class="toc-text">关于Cookie跨域需要了解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于Springboot使用了Security的RememberMe功能进行跨域导致的问题"><span class="toc-number">4.</span> <span class="toc-text">关于Springboot使用了Security的RememberMe功能进行跨域导致的问题</span></a></li></ol>
         
     </div>
     <style>
@@ -398,7 +410,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Hexo+github搭建个人博客的历程　| 谎言、　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"SpringBoot与Angular前后端分离之携带Cookie　| 谎言、　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -418,7 +430,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/07/11/angular1/" title="上一篇: Angular入门学习一">
+            <a href="/2019/07/21/angular踩坑记（一）/" title="上一篇: angular踩坑记（一）">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -426,7 +438,9 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/07/17/angular集成篇/" title="下一篇: angular集成篇">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 

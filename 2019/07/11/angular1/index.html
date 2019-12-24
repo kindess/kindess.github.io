@@ -15,20 +15,21 @@
 
 
 
-<meta name="description" content="##安装环境 ###安装node.js学习Angular，首先需要安装node.js，需要node内置的npm支持，node.js的官网下载 ###安装angular使用node安装angular：npm的官网在国外，同docker等等，网速太慢会引起各种问题，因此使用node安装之前，先换源，使用淘宝镜像安装。npm config set registry https://registry.np">
+<meta name="description" content="安装环境安装node.js学习Angular，首先需要安装node.js，需要node内置的npm支持，node.js的官网下载 安装angular使用node安装angular：npm的官网在国外，同docker等等，网速太慢会引起各种问题，因此使用node安装之前，先换源，使用淘宝镜像安装。  npm config set registry https://registry.npm.taoba">
 <meta name="keywords" content="Angular,node">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular入门学习一">
 <meta property="og:url" content="http://yoursite.com/2019/07/11/angular1/index.html">
 <meta property="og:site_name" content="谎言、">
-<meta property="og:description" content="##安装环境 ###安装node.js学习Angular，首先需要安装node.js，需要node内置的npm支持，node.js的官网下载 ###安装angular使用node安装angular：npm的官网在国外，同docker等等，网速太慢会引起各种问题，因此使用node安装之前，先换源，使用淘宝镜像安装。npm config set registry https://registry.np">
+<meta property="og:description" content="安装环境安装node.js学习Angular，首先需要安装node.js，需要node内置的npm支持，node.js的官网下载 安装angular使用node安装angular：npm的官网在国外，同docker等等，网速太慢会引起各种问题，因此使用node安装之前，先换源，使用淘宝镜像安装。  npm config set registry https://registry.npm.taoba">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/07/11/angular1/1.webp">
 <meta property="og:image" content="http://yoursite.com/2019/07/11/angular1/2.png">
-<meta property="og:updated_time" content="2019-07-11T06:28:36.517Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/11/angular1/3.png">
+<meta property="og:updated_time" content="2019-07-11T06:35:25.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular入门学习一">
-<meta name="twitter:description" content="##安装环境 ###安装node.js学习Angular，首先需要安装node.js，需要node内置的npm支持，node.js的官网下载 ###安装angular使用node安装angular：npm的官网在国外，同docker等等，网速太慢会引起各种问题，因此使用node安装之前，先换源，使用淘宝镜像安装。npm config set registry https://registry.np">
+<meta name="twitter:description" content="安装环境安装node.js学习Angular，首先需要安装node.js，需要node内置的npm支持，node.js的官网下载 安装angular使用node安装angular：npm的官网在国外，同docker等等，网速太慢会引起各种问题，因此使用node安装之前，先换源，使用淘宝镜像安装。  npm config set registry https://registry.npm.taoba">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/11/angular1/1.webp">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -197,7 +198,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BootstrapTable/">BootstrapTable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elementUI/">elementUI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layui/">layui</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li></ul>
                     </div>
                 </section>
                 
@@ -314,20 +315,47 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##安装环境</p>
-<p>###安装node.js<br>学习Angular，首先需要安装node.js，需要node内置的npm支持，<a href="https://nodejs.org/en/download/current/" target="_blank" rel="noopener">node.js的官网下载</a></p>
-<p>###安装angular<br>使用node安装angular：<br>npm的官网在国外，同docker等等，网速太慢会引起各种问题，因此使用node安装之前，先换源，使用淘宝镜像安装。<br><code><br>npm config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a> //淘宝换源指令<br>npm install -g @angular/cli //安装angular<br></code><br>查看版本信息，是否安装成功，运行命令  ng v<br><img src="/2019/07/11/angular1/1.webp" alt="查看版本信息"><br>新建一个angular空项目不过，使用上面这条命令创建会出现问题（没遇到就算了，遇到请使用下面的方式创建）<br><code><br>ng new --skip-install<br></code><br>如图，<br><img src="/2019/07/11/angular1/2.png" alt="新建一个angular空项目"><br>上面我们没有安装angular的依赖，因此我们进入项目根目录下，我这个项目根目录是C:\Users\Administrator\my-app,<br>打开cmd命令，执行npm install或者cnpm install（上面换源了才能使用cnpm命令）<br>运行命令<br><code><br>ng serve<br></code><br>打开浏览器，访问localhost:4200，如果执行命令出现类似下面的报错，<br><code><br>An unhandled exception occurred: Cannot find module '@angular-devkit/build-webpack'<br>See "C:\Users\ADMINI~1\AppData\Local\Temp\ng-lEA4YS\angular-errors.log" for further details.<br>npm ERR! file C:\Windows\system32\cmd.exe<br>npm ERR! code ELIFECYCLE<br>npm ERR! errno ENOENT<br>npm ERR! syscall spawn<br>npm ERR! <a href="mailto:test@0.0.0" target="_blank" rel="noopener">test@0.0.0</a> start: <code>ng serve</code><br>npm ERR! spawn ENOENT<br>npm ERR!<br>npm ERR! Failed at the <a href="mailto:test@0.0.0" target="_blank" rel="noopener">test@0.0.0</a> start script.<br>npm ERR! This is probably not a problem with npm. There is likely additional logging output above.</code></p>
-<p>npm ERR! A complete log of this run can be found in:<br>npm ERR!     D:\Program Files\nodejs\node_cache_logs\2019-07-11T06_13_09_014Z-debug.log</p>
-
-表示缺少依赖，最直接的办法就是删掉my-app项目中的文件夹node_modules，这文件夹下全是执行cnpm install
-命令安装的依赖，删掉之后我们重新执行cnpm install进行重新下载。如仍有报错，继续。。。
-###结果
-![成功页面](angular1/3.png)
-###新建一个angular空项目
+        <h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>学习Angular，首先需要安装node.js，需要node内置的npm支持，<a href="https://nodejs.org/en/download/current/" target="_blank" rel="noopener">node.js的官网下载</a></p>
+<h3 id="安装angular"><a href="#安装angular" class="headerlink" title="安装angular"></a>安装angular</h3><p>使用node安装angular：<br>npm的官网在国外，同docker等等，网速太慢会引起各种问题，因此使用node安装之前，先换源，使用淘宝镜像安装。</p>
 <code>
+npm config set registry https://registry.npm.taobao.org //淘宝换源指令
+npm install -g @angular/cli //安装angular
+</code>
+
+<p>查看版本信息，是否安装成功，运行命令  ng v<br><img src="/2019/07/11/angular1/1.webp" alt="查看版本信息"></p>
+<h3 id="新建一个angular空项目"><a href="#新建一个angular空项目" class="headerlink" title="新建一个angular空项目"></a>新建一个angular空项目</h3><code>
 ng new 项目名
 </code>
 
+<p>使用ng命令新建一个angular空项目。不过，使用上面这条命令创建会出现问题（没遇到就算了，遇到请使用下面的方式创建）</p>
+<code>
+ng new --skip-install
+</code>
+
+<p>如图，<br><img src="/2019/07/11/angular1/2.png" alt="新建一个angular空项目"><br>上面我们没有安装angular的依赖，因此我们进入项目根目录下，我这个项目根目录是C:\Users\Administrator\my-app,<br>打开cmd命令，执行npm install或者cnpm install（上面换源了才能使用cnpm命令）<br>运行命令</p>
+<code>
+ng serve
+</code>
+
+<p>打开浏览器，访问localhost:4200，如果执行命令出现类似下面的报错，</p>
+<code>
+An unhandled exception occurred: Cannot find module '@angular-devkit/build-webpack'
+See "C:\Users\ADMINI~1\AppData\Local\Temp\ng-lEA4YS\angular-errors.log" for further details.
+npm ERR! file C:\Windows\system32\cmd.exe
+npm ERR! code ELIFECYCLE
+npm ERR! errno ENOENT
+npm ERR! syscall spawn
+npm ERR! test@0.0.0 start: `ng serve`
+npm ERR! spawn ENOENT
+npm ERR!
+npm ERR! Failed at the test@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+<p>npm ERR! A complete log of this run can be found in:<br>npm ERR!     D:\Program Files\nodejs\node_cache_logs\2019-07-11T06_13_09_014Z-debug.log</p>
+</code>
+
+<p>表示缺少依赖，最直接的办法就是删掉my-app项目中的文件夹node_modules，这文件夹下全是执行cnpm install<br>命令安装的依赖，删掉之后我们重新执行cnpm install进行重新下载。如仍有报错，继续。。。</p>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p><img src="/2019/07/11/angular1/3.png" alt="成功页面"></p>
 
       
     </div>
@@ -339,7 +367,7 @@ ng new 项目名
         <p><span>本文标题:</span><a href="/2019/07/11/angular1/">Angular入门学习一</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Peng Binbin</a></p>
         <p><span>发布时间:</span>2019-07-11, 12:47:40</p>
-        <p><span>最后更新:</span>2019-07-11, 14:28:36</p>
+        <p><span>最后更新:</span>2019-07-11, 14:35:25</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/07/11/angular1/" title="Angular入门学习一">http://yoursite.com/2019/07/11/angular1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/07/11/angular1/　　作者: Peng Binbin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -353,6 +381,12 @@ ng new 项目名
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/07/11/angular2/">
+                    Angular入门学习二
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -369,7 +403,7 @@ ng new 项目名
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装环境"><span class="toc-number">1.</span> <span class="toc-text">安装环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装node-js"><span class="toc-number">1.1.</span> <span class="toc-text">安装node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装angular"><span class="toc-number">1.2.</span> <span class="toc-text">安装angular</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建一个angular空项目"><span class="toc-number">1.3.</span> <span class="toc-text">新建一个angular空项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果"><span class="toc-number">1.4.</span> <span class="toc-text">结果</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -425,7 +459,9 @@ ng new 项目名
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/07/11/angular2/" title="上一篇: Angular入门学习二">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -437,7 +473,7 @@ ng new 项目名
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/11/angular1/">Angular入门学习一</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/30/first-article/">Hexo+github搭建个人博客的历程</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/12/24/vue-elementUI上传组件具体实现/">vue-elementUI上传组件具体实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/21/angular踩坑记（一）/">angular踩坑记（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/springboot与angular前后端分离之携带cookie/">SpringBoot与Angular前后端分离之携带Cookie</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/17/angular集成篇/">angular集成篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/17/angular4/">Angular入门学习四</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/17/angular3/">Angular入门学习三</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/11/angular2/">Angular入门学习二</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/11/angular1/">Angular入门学习一</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/30/first-article/">Hexo+github搭建个人博客的历程</a></li></ul>
 
 
 
